@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+/* styles.css or styles.scss */
+
+:root {
+  --primary-color: #3498db; /* Your primary color */
+  --secondary-color: #2ecc71; /* Your secondary color */
+  --background-color: #f5f5f5; /* Your background color */
+  --text-color: #333; /* Your text color */
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Add more styles using the variables as needed */
