@@ -1,8 +1,7 @@
+import { AngularFireAuthGuard } from '@angular/fire/compat/auth-guard';
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-
-
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from './environment';
@@ -36,6 +35,7 @@ import { SignupComponent } from './signup/signup.component';
 import { UserBooksComponent } from './user-books/user-books.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { AuthGuard } from './core/auth.guard'; // Corrected import statement
 
 
 @NgModule({
@@ -49,10 +49,10 @@ import { ToastrModule } from 'ngx-toastr';
 
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase),
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     MatButtonModule,
     MatCardModule,
@@ -68,7 +68,9 @@ import { ToastrModule } from 'ngx-toastr';
    
 
   ],
-  providers: [],
+  providers: [
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
