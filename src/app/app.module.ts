@@ -26,21 +26,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 // import { TaskListComponent } from './task-list/task-list.component';
 import { FormsModule } from '@angular/forms';
-import { TaskComponent } from './task/task.component';
+import { BookComponent } from './book/book.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { UserBooksComponent } from './user-books/user-books.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskComponent,
+    BookComponent,
     LoginComponent,
     SignupComponent,
+    // UserBooksComponent,
+    UserBooksComponent,
 
   ],
   imports: [
@@ -55,7 +60,10 @@ import { SignupComponent } from './signup/signup.component';
     MatDividerModule,
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // required animations module
+
 
    
 

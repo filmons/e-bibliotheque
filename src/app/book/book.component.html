@@ -1,0 +1,52 @@
+<!-- Task List -->
+<div class="container mt-5">
+    <h2 class="mb-4">Books Store</h2>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search for Books by Title or Author Name" [(ngModel)]="searchTerm" (input)="searchTasks()">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" (click)="refreshList()">Clear Search</button>
+            <button class="btn btn-primary" (click)="showForms()">{{!addButton ? 'Add Task' : 'Close Form'}}</button>
+        </div>
+    </div>
+
+    <!-- Add Task Form -->
+    <div class="add-item-container" *ngIf="addButton">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Task Title" [(ngModel)]="newItem.title">
+            <div class="input-group-append">
+                <button class="btn btn-success" type="button" (click)="addItem()">Add</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Task Cards -->
+    <div class="row">
+        <div class="col-md-4" *ngFor="let task of filteredTasks">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{ task.title }}</h5>
+                    <div [style.background-color]="task.isAvailable ? 'red' : 'green'" class="mb-3">
+                        Task Status: {{ task.isAvailable ? 'Not Available' : 'Available' }}
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-danger" (click)="deleteItem(task)">Delete</button>
+                        <button class="btn btn-primary" (click)="toggleEditMode(task)">Edit</button>
+                        <button class="btn btn-secondary" (click)="showAttachField(task)">Attach</button>
+                    </div>
+
+                    <div class="mt-3" *ngIf="currentTutorial?.id === task.id">
+                        <input type="text" class="form-control" [(ngModel)]="updatedTitle" placeholder="Updated Title">
+                        <button class="btn btn-success mt-2" (click)="updateTutorial(task, updatedTitle)">Update</button>
+                    </div>
+
+                    <div *ngIf="task.showAttachField" class="mt-3">
+                        <input type="email" class="form-control" [(ngModel)]="userEmail" placeholder="Enter user email">
+                        <button class="btn btn-success mt-2" (click)="attachTaskToUser(task.id, userEmail)">Attach to User</button>
+                        <p class="mt-2">User doesn't have an account? <a routerLink="/">Sign Up</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
