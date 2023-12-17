@@ -10,6 +10,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class UserBooksComponent implements OnInit {
   userTasks: Books[] = [];
+  currentPage: string = 'Mes emprunts';
    // Use the Task model here
   constructor(private taskService: BookService, private authService: AuthService) {}
   ngOnInit() {
