@@ -1,15 +1,141 @@
-/* styles.css or styles.scss */
-
 :root {
-  --primary-color: #3498db; /* Your primary color */
-  --secondary-color: #2ecc71; /* Your secondary color */
-  --background-color: #f5f5f5; /* Your background color */
-  --text-color: #333; /* Your text color */
+  --primary-color: #3498db;
+  --background-color: #f3f3f3;
+  --cover-bg: rgba(30,30,30,255);
+  --cover-radius: 5px;
+  --inner: 5px;
+  --thick: 45px;
 }
 
 body {
   background-color: var(--background-color);
   color: var(--text-color);
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  perspective: 1000px;
 }
 
-/* Add more styles using the variables as needed */
+a {
+  text-decoration: none !important;
+}
+
+#toast-container .ngx-toastr {
+    width: 300px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #000000;
+    left: 50%;
+    padding: 20px;
+    position: fixed;
+    pointer-events: none;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.book {
+    margin: 0 auto;
+    position: relative;
+    transform: rotateY(-15deg) rotateX(25deg);
+    transition: 0.5s transform;
+}
+
+.book:hover {
+    transform: rotateY(-20deg) rotateX(20deg);
+}
+
+.book,
+.book__cover,
+.book__pages {
+    transform-style: preserve-3d;
+}
+
+.book__cover,
+.book__cover::before,
+.book__cover-img {
+    border-top-right-radius: var(--cover-radius);
+    border-bottom-right-radius: var(--cover-radius);
+    user-select: none;
+}
+
+.book__cover::before,
+.book__cover::after,
+.book__pages::before,
+.book__pages::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    height: 100%;
+}
+
+.book__cover,
+.book__cover::before,
+.book__cover::after {
+    background-color: var(--cover-bg);
+}
+
+.book__cover {
+    width: 100%;
+    height: 100%;
+}
+
+.book__cover::before {
+    width: 100%;
+    transform: translateZ(calc(var(--thick)*-1));
+    box-shadow: 0 0 16px 1px rgba(0, 0, 0, 1);
+}
+
+.book__cover::after {
+    width: var(--thick);
+    transform-origin: left center;
+    transform: rotateY(90deg);
+}
+
+.book__cover-img {
+    width: 100%;
+    height: 100%;
+}
+
+.book__pages,
+.book__pages::before,
+.book__pages::after {
+    background: var(--background-color);
+}
+
+.book__pages {
+    position: absolute;
+    right: var(--inner);
+    top: var(--inner);
+    width: var(--thick);
+    height: calc(100% - var(--inner)*2);
+    transform-origin: right center;
+    transform: rotateY(-90deg);
+}
+
+.book__pages::before,
+.book__pages::after {
+    width: var(--thick);
+    height: calc(var(--witdh) - var(--inner));
+}
+
+.book__pages::before {
+    transform-origin: center top;
+    transform: rotateX(90deg);
+}
+
+.book__pages::after {
+    top: unset;
+    bottom: 0;
+    transform-origin: center bottom;
+    transform: rotateX(-90deg);
+}
+
+.form-control {
+    width: 100%;
+    border: 1px solid #D1D5DB;
+    border-radius: 5px;
+    padding: 5px 2px;
+}

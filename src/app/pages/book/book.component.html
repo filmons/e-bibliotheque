@@ -1,0 +1,68 @@
+<app-breadcrumb [currentPage]="currentBookPage"></app-breadcrumb>
+
+<div class="mb-4">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search for Books by Title or Author Name" [(ngModel)]="searchTerm" (input)="searchTasks()">
+        <div class="input-group-append">
+            <button class="bg-white border my-2 p-1 rounded-md" type="button" (click)="refreshList()">Effacer les filtres</button>
+        </div>
+    </div>
+
+</div>
+
+<section>
+    <div class="input-group mb-4 text-right w-full">
+        <button class="bg-blue-600 mb-2 px-2 py-1 rounded-md text-white" (click)="showForms()">{{!addButton ? 'Ajouter un livre' : 'Fermer'}}</button>
+        <div class="add-item-container" *ngIf="addButton">
+            <div class="input-group">
+                <input type="text" class="form-control border my-4" placeholder="Titre" [(ngModel)]="newItem.title">
+                <div class="input-group-append ">
+                    <button class="bg-green-600 px-2 py-1 rounded-md text-white" type="button" (click)="addItem()">Ajouter</button>
+                </div>
+            </div>
+        </div>  
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div *ngFor="let book of filteredTasks">
+            <div class="book mb-4">
+                <div class="book__cover">
+                <img class="book__cover-img" src="https://ih1.redbubble.net/image.3352518822.7769/raf,750x1000,075,t,FFFFFF:97ab1c12de.jpg" [alt]="book.title" [title]="book.title">
+                </div>
+                <div class="book__pages"></div>
+            </div>
+
+            <div class="bg-white p-8 rounded-lg text-center shadow-md">
+                <h2 class="mb-4 text-2xl font-semibold text-gray-800">{{ book.title }}</h2>
+
+                <div class="flex justify-between mb-4">
+                    <div class="flex flex-col gap-2 text-left">
+                        <small class="text-gray-500">Status</small>
+                        <p [style.color]="book.isAvailable ? 'red' : 'green'" class="mb-3">
+                            {{ book.isAvailable ? 'Indisponible' : 'Disponible' }}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex justify-between text-white w-full">
+                    <button class="bg-red-600 px-2 py-1 rounded-md" (click)="deleteItem(book)">Effacer</button>
+                    <button class="bg-blue-600 px-2 py-1 rounded-md" (click)="toggleEditMode(book)">Modifier</button>
+                    <button class="bg-black px-2 py-1 rounded-md" (click)="showAttachField(book)">Emprunter</button>
+                </div>
+
+                <div class="flex gap-4 mt-4 w-full" *ngIf="currentTutorial?.id === book.id">
+                    <input type="text" class="form-control border p-2" [(ngModel)]="updatedTitle" placeholder="Updated Title">
+                    <button class="bg-green-600 px-2 py-1 rounded-md text-white" (click)="updateTutorial(book, updatedTitle)">Update</button>
+                </div>
+
+                <div class="card-body">
+                    <div *ngIf="book.showAttachField" class="mt-3">
+                        <input type="email" class="form-control" [(ngModel)]="userEmail" placeholder="Enter user email">
+                        <button class="bg-black my-2 px-2 py-1 rounded-md text-white" (click)="attachTaskToUser(book.id, userEmail)">Emprunter</button>
+                        <p class="mt-3">Pas encore inscrit ? <a href="/signup" class="text-blue-500">Inscription</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</section>
