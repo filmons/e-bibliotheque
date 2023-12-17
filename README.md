@@ -1,4 +1,7 @@
 # EBibliotheque
+Filmon SEARE.
+Ikram MBECHEZI.
+Michel Daniel Mehdi OBAME NDONG.
 # 
 FEAT: IMPLEMENT TASK MANAGEMENT IN BOOKCOMPONENT
 - Created BookComponent for managing and displaying a list of tasks
