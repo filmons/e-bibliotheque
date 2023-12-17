@@ -1,10 +1,10 @@
-/* Add basic styling for the task list section */
+/* Add basic styling for the book list section */
 .contact-section {
     padding: 20px;
     background-color: #f5f5f5;
   }
   
-  /* Style the "Add Task" button */
+  /* Style the "Add Book" button */
   .add-button {
     background-color: #007bff;
     color: white;
@@ -18,8 +18,8 @@
     background-color: #0056b3;
   }
   
-  /* Style the "Add Task" input field */
-  .add-task-input {
+  /* Style the "Add Book" input field */
+  .add-book-input {
     width: 100%;
     padding: 10px;
     margin-right: 10px;
@@ -27,8 +27,8 @@
     border-radius: 5px;
   }
   
-  /* Style the "Add Task" button within the form */
-  .add-task-button {
+  /* Style the "Add Book" button within the form */
+  .add-book-button {
     background-color: #007bff;
     color: white;
     padding: 10px 20px;
@@ -36,18 +36,18 @@
     cursor: pointer;
   }
   
-  .add-task-button:hover {
+  .add-book-button:hover {
     background-color: #0056b3;
   }
   
-  /* Style the task list container */
-  .task-list {
+  /* Style the book list container */
+  .book-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
   }
   
-  /* Style the task cards */
+  /* Style the book cards */
   .example-card {
     width: calc(33.33% - 10px);
     margin-bottom: 20px;
@@ -60,7 +60,7 @@
   }
   
   /* Style the edit input field */
-  .edit-task-input {
+  .edit-book-input {
     width: 100%;
     padding: 5px;
     margin-bottom: 10px;
@@ -69,7 +69,7 @@
   }
   
   /* Style the update button */
-  .update-task-button {
+  .update-book-button {
     background-color: #007bff;
     color: white;
     padding: 5px 10px;
@@ -77,7 +77,7 @@
     cursor: pointer;
   }
   
-  .update-task-button:hover {
+  .update-book-button:hover {
     background-color: #0056b3;
   }
   

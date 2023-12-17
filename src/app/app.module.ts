@@ -24,24 +24,35 @@ from '@angular/fire/storage';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import { TaskListComponent } from './task-list/task-list.component';
+// import { BookListComponent } from './book-list/book-list.component';
 import { FormsModule } from '@angular/forms';
-import { TaskComponent } from './task/task.component';
+import { LoginComponent } from './pages/login/login.component';
+import { HomeComponent } from './pages/home/home.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
-import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
+import {MatIconModule} from '@angular/material/icon';
+import { BookComponent } from './pages/book/book.component';
+import { ErrorComponent } from './pages/error/error.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 
+import { CardComponent } from './components/card/card.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskComponent,
+    HomeComponent,
     LoginComponent,
     SignupComponent,
-
+    BookComponent,
+    BreadcrumbComponent,
+    CardComponent,
+    ErrorComponent,
+    FooterComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,8 +67,6 @@ import { SignupComponent } from './signup/signup.component';
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
     provideStorage(() => getStorage())
-
-   
 
   ],
   providers: [],

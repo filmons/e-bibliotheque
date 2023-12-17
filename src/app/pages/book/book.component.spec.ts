@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TaskComponent } from './task.component';
+import { BookComponent } from './book.component';
 
-describe('TaskComponent', () => {
-  let component: TaskComponent;
-  let fixture: ComponentFixture<TaskComponent>;
+describe('BookComponent', () => {
+  let component: BookComponent;
+  let fixture: ComponentFixture<BookComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TaskComponent]
+      declarations: [BookComponent]
     });
-    fixture = TestBed.createComponent(TaskComponent);
+    fixture = TestBed.createComponent(BookComponent);
     component = fixture.componentInstance; // Access the component instance using fixture
     fixture.detectChanges();
   });
@@ -27,11 +27,11 @@ describe('TaskComponent', () => {
       newTitle: ''
     };
 
-    component.listtask = []; // Set an initial empty list
+    component.listbook = []; // Set an initial empty list
     component.addItem(); // Add the new item
 
     // Check if the newItem is in the list
-    expect(component.listtask).toContain(newItem);
+    expect(component.listbook).toContain(newItem);
   });
 
   it('should delete an item from the list', () => {
@@ -42,11 +42,11 @@ describe('TaskComponent', () => {
       newTitle: ''
     };
 
-    component.listtask = [itemToDelete]; // Set an initial list with the item to delete
+    component.listbook = [itemToDelete]; // Set an initial list with the item to delete
     component.deleteItem(itemToDelete); // Delete the item
 
     // Check if the item is no longer in the list
-    expect(component.listtask).not.toContain(itemToDelete);
+    expect(component.listbook).not.toContain(itemToDelete);
   });
 
   // Add more test cases as needed

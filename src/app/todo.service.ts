@@ -1,19 +1,19 @@
 
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import {  todoListApp } from './task.model';
+import { ToDoListApp } from './models/book.model';
 @Injectable({
   providedIn: 'root'
 })
 
 export class TodoService {
-  private dbPath = '/todoListApp'; ProdactsRef: AngularFirestoreCollection<todoListApp>;
+  private dbPath = '/ToDoListApp'; ProdactsRef: AngularFirestoreCollection<ToDoListApp>;
 
   constructor(private db: AngularFirestore) {
     this.ProdactsRef = db.collection(this.dbPath);
   }
   
-  getAll(): AngularFirestoreCollection<todoListApp> {
+  getAll(): AngularFirestoreCollection<ToDoListApp> {
     return this.ProdactsRef;
   }
   update(id: string, data: any): Promise<void> {
@@ -22,7 +22,7 @@ export class TodoService {
   delete(id: string): Promise<void> {
     return this.ProdactsRef.doc(id).delete();
   }
-  create(prodact: todoListApp): any {
+  create(prodact: ToDoListApp): any {
     return this.ProdactsRef.add({ ...prodact });
   }
 }

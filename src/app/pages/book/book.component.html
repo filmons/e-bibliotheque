@@ -1,0 +1,53 @@
+<app-breadcrumb [currentPage]="currentBookPage"></app-breadcrumb>
+
+<div class="mb-4">
+    <button class="bg-blue-600 mb-2 px-2 py-1 rounded-md text-white" (click)="showForms()">{{!addButton ? 'Ajouter un livre' : 'Fermer'}}</button>
+
+    <div class="add-item-container" *ngIf="addButton">
+        <div class="input-group">
+            <input type="text" class="form-control border my-4" placeholder="Titre" [(ngModel)]="newItem.title">
+            <div class="input-group-append ">
+                <button class="bg-green-600 px-2 py-1 rounded-md text-white" type="button" (click)="addItem()">Ajouter</button>
+            </div>
+        </div>
+    </div>  
+</div>
+
+<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <div *ngFor="let book of listbook">
+        <div class="book mb-4">
+            <div class="book__cover">
+              <img class="book__cover-img" src="https://ih1.redbubble.net/image.3352518822.7769/raf,750x1000,075,t,FFFFFF:97ab1c12de.jpg" [alt]="book.title" [title]="book.title">
+            </div>
+            <div class="book__pages"></div>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg text-center">
+            <h2 class="mb-4 text-2xl font-semibold text-gray-800">{{ book.title }}</h2>
+
+            <div class="flex justify-between mb-4">
+                <div class="flex flex-col gap-2 text-left">
+                    <small class="text-gray-500">Auteur</small>
+                    <p href="" class="font-semibold">Ikr</p>
+                </div>
+
+                <div class="flex flex-col gap-2 text-left">
+                    <small class="text-gray-500">Prix</small>
+                    <p href="" class="font-semibold">0€</p>
+                </div>
+            </div>
+
+            <div class="flex justify-between text-white w-full">
+                <button class="bg-red-600 px-2 py-1 rounded-md" (click)="deleteItem(book)">Delete</button>
+                <button class="bg-blue-600 px-2 py-1 rounded-md" (click)="toggleEditMode(book)">
+                    {{ currentTutorial?.id === book.id ? 'Close' : 'Edit' }}
+                </button>  
+            </div>
+
+            <div class="flex gap-4 mt-4 w-full" *ngIf="currentTutorial?.id === book.id">
+                <input type="text" class="form-control border p-2" [(ngModel)]="updatedTitle" placeholder="Updated Title">
+                <button class="bg-green-600 px-2 py-1 rounded-md text-white" (click)="updateTutorial(book, updatedTitle)">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

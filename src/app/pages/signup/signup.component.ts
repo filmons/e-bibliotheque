@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-
+  title: string = 'Simple, rapide, efficace';
+  imageSrc: string = '../../../assets/images/book-2.gif';
+  currentBookPage: string = 'Inscription';
 }

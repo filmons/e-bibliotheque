@@ -1,14 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TaskComponent } from './task/task.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
+
+
+import { ErrorComponent } from './pages/error/error.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { BookComponent } from './pages/book/book.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'signup', pathMatch: 'full' },
-  { path: 'task', component: TaskComponent },
+  { path: '', component: HomeComponent },
+  { path: 'book', component: BookComponent },
   { path: 'login', component: LoginComponent },
-  { path: '', component: SignupComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: '**', component: ErrorComponent },
+  // { path: '', redirectTo: 'signup', pathMatch: 'full' },
 ];
 
 
