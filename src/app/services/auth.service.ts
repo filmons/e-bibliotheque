@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { map } from 'rxjs/operators';
-import { Books } from '../book.model';
+import { Books } from '../models/book.model';
 
 import { ToastrService } from 'ngx-toastr';
 import firebase from 'firebase/compat/app'; // Import firebase explicitly
@@ -55,7 +55,6 @@ export class AuthService {
           signupFirstName: signupFirstName,
           signupLastName: signupLastName,
         });
-        console.log('this is the singup ', result);
       } else {
         this.toastr.error('User not found after sign up.');
       }

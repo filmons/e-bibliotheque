@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AngularFireAuthGuard, redirectLoggedInTo, redirectUnauthorizedTo } from '@angular/fire/compat/auth-guard';
-import { BookComponent } from './book/book.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { UserBooksComponent } from './user-books/user-books.component';
+
 import { AuthGuard } from './core/auth.guard';
+import { BookComponent } from './pages/book/book.component';
+import { ErrorComponent } from './pages/error/error.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { UserBooksComponent } from './pages/user-books/user-books.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', component: SignupComponent },
-  { path: 'books', component: BookComponent,
-  canActivate: [AuthGuard] 
-   },
+  { path: '', pathMatch: 'full', component: HomeComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'books', component: BookComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'history', component: UserBooksComponent,
-  canActivate: [AuthGuard] 
- },
+  { path: 'history', component: UserBooksComponent, canActivate: [AuthGuard] },
+  { path: '**', component: ErrorComponent },
 ];
 
 @NgModule({

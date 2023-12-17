@@ -1,7 +1,7 @@
 // bookService.get
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import {  Books } from '../book.model';
+import {  Books } from '../models/book.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -26,7 +26,6 @@ export class BookService {
   }
 
   getAttachedTasks() {
-    console.log("Fetching attached tasks...");
     return this.firestore.collection<Books>('todoListApp',
      ref => ref.where('isAvailable', '==', true)).valueChanges();
   }
