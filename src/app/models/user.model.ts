@@ -1,3 +1,4 @@
+// user.model.user
 export interface user {
     id?: string; 
     firstName: string;

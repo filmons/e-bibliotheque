@@ -1,83 +1,70 @@
-/* Add basic styling for the book list section */
-.contact-section {
-    padding: 20px;
-    background-color: #f5f5f5;
-  }
-  
-  /* Style the "Add Book" button */
-  .add-button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    margin-bottom: 20px;
-  }
-  
-  .add-button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Style the "Add Book" input field */
-  .add-book-input {
-    width: 100%;
-    padding: 10px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  /* Style the "Add Book" button within the form */
-  .add-book-button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .add-book-button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Style the book list container */
-  .book-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  /* Style the book cards */
+Card Styling
+.card {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Status Badge */
+.status-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 15px;
+  color: white;
+  font-weight: bold;
+}
+
+.status-available {
+  background-color: #28a745;
+}
+
+.status-not-available {
+  background-color: #dc3545;
+}
+
+/* Button Styling */
+.btn {
+  margin: 5px;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background-color: #007bff;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+}
+
+/* Add Task Form */
+.add-item-container {
+  margin-bottom: 30px;
+}
+
+.add-task-input {
+  margin-right: 10px;
+  flex-grow: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .example-card {
-    width: calc(33.33% - 10px);
-    margin-bottom: 20px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
+    width: calc(50% - 10px); /* Adjust card width on smaller screens */
   }
-  
-  .example-card:hover {
-    transform: translateY(-5px);
+}
+
+@media (max-width: 480px) {
+  .example-card {
+    width: 100%; /* Full width on very small screens */
   }
-  
-  /* Style the edit input field */
-  .edit-book-input {
-    width: 100%;
-    padding: 5px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  /* Style the update button */
-  .update-book-button {
-    background-color: #007bff;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .update-book-button:hover {
-    background-color: #0056b3;
-  }
-  
+}
+
