@@ -1,8 +1,10 @@
-# EBibliotheque
+# EBibliotheque  
 Filmon SEARE.
 Ikram MBECHEZI.
 Michel Daniel Mehdi OBAME NDONG.
 # 
+# Veuillez consulter les captures d'écran pour plus de détails. 
+# Nos branches respectives ont été merged dans la branche principale (main).
 FEAT: IMPLEMENT TASK MANAGEMENT IN BOOKCOMPONENT
 - Created BookComponent for managing and displaying a list of tasks
   - Implemented CRUD operations for tasks (add, delete, update)
