@@ -36,7 +36,7 @@ import { UserBooksComponent } from './user-books/user-books.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthGuard } from './core/auth.guard'; // Corrected import statement
-
+import { PasswordStrengthPipe} from './pipes/password.pipe';
 
 @NgModule({
   declarations: [
@@ -44,9 +44,8 @@ import { AuthGuard } from './core/auth.guard'; // Corrected import statement
     BookComponent,
     LoginComponent,
     SignupComponent,
-    // UserBooksComponent,
     UserBooksComponent,
-
+    PasswordStrengthPipe
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
