@@ -1,5 +1,6 @@
 # EBibliotheque
-# FEAT: IMPLEMENT TASK MANAGEMENT IN BOOKCOMPONENT
+# 
+FEAT: IMPLEMENT TASK MANAGEMENT IN BOOKCOMPONENT
 - Created BookComponent for managing and displaying a list of tasks
   - Implemented CRUD operations for tasks (add, delete, update)
   - Added functionality to attach tasks to users
@@ -19,27 +20,7 @@
 
 - Integrated toastr library for displaying success and error messages"
 
-# " FEAT: IMPLEMENT USER AUTHENTICATION AND BOOK MANAGEMENT
-
- - Created UserBooksComponent for displaying and managing user-related books
-  - Loaded attached books from BookService
-  - Implemented task detachment and updating availability
-
-- Modified SignupComponent for user registration
-  - Integrated AuthService for user signup
-  - Navigated to login page on successful signup
-
-- Modified LoginComponent for user login
-  - Integrated AuthService for user login
-  - Redirected to the books page on successful login
-
-- Updated BookService
-  - Added methods for getting attached books and detaching books from users
-
-- Updated AuthService
-  - Added a signup method for user registration
-
-- Minor code cleanup and error handling improvements"
+# " github.com
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
 ## Development server
